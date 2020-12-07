@@ -1,0 +1,143 @@
+
+/* List of choices */
+meal([standard, value, veggie, vegan, healthy]).
+bread([italian_wheat, hearty_italian, honey_oat, parmesan_oregano, multigrain, flatbread]).
+meat([chicken_breast, ham, bacon, meat_ball, roast_beef, steak, tuna]).
+veggies([cucumbers, bell_peppers, lettuce, onions, tomatoes, olives, corn, pickles]).
+fatty_sauce([chipotle_southwest, ranch, bbq, mayonnaise, mustard]).
+non_fatty_sauce([chilli_sauce, tomato_sauce]).
+cheese_topup([processed_cheddar, monterey_cheddar]).
+non_cheese_topup([egg_mayo, guacamole]).
+sides([chips, cookies, hash_browns, yogurt, drinks]).
+
+
+/* Condition check for the meal option */
+value_meal(value).
+veggie_meal(veggie).
+vegan_meal(vegan).
+healthy_meal(healthy).
+
+
+/* Conditions for selectively displaying the options */
+ask_meal(X):- meal(X).
+ask_bread(X):- bread(X).
+ask_meat(X):- meat(X).
+ask_veggies(X):- veggies(X).
+/* Display non fatty sauce for healthy meal*/
+ask_sauce(X):- findall(X, (chosen_meal(Y), healthy_meal(Y) ->
+                          non_fatty_sauce(X);
+                          fatty_sauce(S1), non_fatty_sauce(S2), append(S1, S2, X)), X).
+/* Display topup if it is not value meal */
+/* Display non cheese topup for vegan meal */
+ask_topup(X):- findall(X, (chosen_meal(Y) ->
+                          (vegan_meal(Y) -> non_cheese_topup(X);
+                          cheese_topup(T1), non_cheese_topup(T2), append(T1, T2, X))), X).
+ask_sides(X):- sides(X).
+
+
+/* Display user's choice */
+show_meal(X):- findall(Y, (chosen_meal(Y), Y\=nothing), X).
+show_bread(X):- findall(Y, (chosen_bread(Y), Y\=nothing), X).
+show_meat(X):- findall(Y, (chosen_meat(Y), Y\=nothing), X).
+show_veggies(X):- findall(Y, (chosen_veggies(Y), Y\=nothing), X).
+show_sauce(X):- findall(Y, (chosen_sauce(Y), Y\=nothing), X).
+show_topup(X):- findall(Y, (chosen_topup(Y), Y\=nothing), X).
+show_sides(X):- findall(Y, (chosen_sides(Y), Y\=nothing), X).
+show_order(0):-  write('Below is a summary of your order: '), nl,
+                 show_meal(A), write('Meal: '), print(A), nl,
+                 show_bread(B), write('Bread: '), print(B), nl,
+                 show_meat(C), ignore((list_empty(C, false) -> write('Meat: '), print(C), nl)),
+                 show_veggies(D), write('Vegetables: '), print(D), nl,
+                 show_sauce(E), write('Sauce: '), print(E), nl,
+                 show_topup(F), ignore((list_empty(F, false) -> write('Top-up: '), print(F), nl)),
+                 show_sides(G), ignore((list_empty(G, false) -> write('Sides: '), print(G), nl)),
+                 write('Thank you for your order! :)'), nl,
+                 nl,
+                 abort.
+
+
+
+order(0):- delete_lists(0), order(meal).
+order(meal):- write('Welcome to Subway! We have these meals to choose from:'), nl,
+              options(meal), nl,
+              order(bread).
+order(bread):- write('These are our options of bread:'), nl,
+               options(bread), nl,
+               chosen_meal(Z), (vegan_meal(Z)->order(veggies);
+                             veggie_meal(Z)->order(veggies);
+                             order(meat)).
+order(meat):- write('These are the meat options:'), nl,
+              options(meat), nl,
+              order(veggies).
+order(veggies):- write('We have a variaty of vegetables available: '), nl,
+                 options(veggies), nl,
+                 order(sauce).
+order(sauce):- write('Then for the sauce:'), nl,
+               options(sauce), nl,
+               chosen_meal(Z), (value_meal(Z) -> order(sides); order(topup)).
+order(topup):- write(':'), nl,
+               options(topup), nl,
+               order(sides).
+order(sides):- write('Do you want any sides? These are not included in the meal. (y/n)'), nl,
+               read(Y), ignore(Y==y -> options(sides)), nl, show_order(0).
+
+
+
+options(meal):- ask_meal(X) -> print(X), nl,
+                write("Which meal do you like today? (choose one) "), nl,
+                read(Y), assert(chosen_meal(Y)).
+options(bread):- ask_bread(X) -> print(X), nl,
+                 write("What bread would you like?(choose one) "), nl,
+                 read(Y), assert(chosen_bread(Y)).
+options(meat):- ask_meat(X) -> print(X), nl,
+                write("What's your choice of meat (choose one): "), nl,
+                read(Y), assert(chosen_meat(Y)).
+options(veggies):- ask_veggies(X) -> print(X), nl,
+                   write("Which would you like? (choose one) "), nl,
+                   read(Y), assert(chosen_veggies(Y)),
+                   write("Sure! Do you want to choose more veggies? (y/n) "), nl,
+                   read(Z), ignore(Z==y -> options(veggies)).
+options(sauce):- ask_sauce(X) -> print(X), nl,
+                 write("Which sauce do you like? (choose one) "), nl,
+                 read(Y), assert(chosen_sauce(Y)),
+                 write("Okay! Would you like to choose more sauce? (y/n) "), nl,
+                 read(Z), ignore(Z==y -> options(sauce)).
+options(topup):- ask_topup(X) -> print(X), nl,
+                write("What top-up would you want? (choose one) "), nl,
+                read(Y), assert(chosen_topup(Y)).
+options(sides):- ask_sides(X) -> print(X), nl,
+                 write("What sides would you have? (choose one): "), nl,
+                 read(Y), assert(chosen_sides(Y)),
+                 write("Got it! Do you want to add on more sides? (y/n) "), nl,
+                 read(Z), ignore(Z==y -> options(sides)).
+
+
+
+list_empty([], true).
+list_empty([_|_], false).
+
+chosen_meal(nothing).
+chosen_bread(nothing).
+chosen_meat(nothing).
+chosen_veggies(nothing).
+chosen_sauce(nothing).
+chosen_topup(nothing).
+chosen_sides(nothing).
+
+
+delete_lists(0):- retractall(chosen_meal(X)),
+                  retractall(chosen_bread(X)),
+                  retractall(chosen_meat(X)),
+                  retractall(chosen_veggies(X)),
+                  retractall(chosen_sauce(X)),
+                  retractall(chosen_topup(X)),
+                  retractall(chosen_sides(X)).
+
+
+dynamicall(0):- dynamic(chosen_meal/1),
+                dynamic(chosen_bread/1),
+                dynamic(chosen_meat/1),
+                dynamic(chosen_veggies/1),
+                dynamic(chosen_sauce/1),
+                dynamic(chosen_topup/1),
+                dynamic(chosen_sides/1).
