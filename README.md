@@ -68,6 +68,11 @@ The choices are listed as below:
 * Top-up: Processed Cheddar  
 * Sides: Cookies, Drinks  
 
+The results are shown as below:  
+<img src = "https://github.com/StephanieMussi/Subway_Machine_Prolog/blob/main/Figures/Standard1.png" width = 460 height = 105>
+<img src = "https://github.com/StephanieMussi/Subway_Machine_Prolog/blob/main/Figures/Standard2.png" width = 759 height = 908>
+<img src = "https://github.com/StephanieMussi/Subway_Machine_Prolog/blob/main/Figures/Standard3.png" width = 412 height = 185>  
+
 ### Test case 2: Value Meal
 The choices are listed as below:  
 * Meal: Value   
@@ -93,7 +98,7 @@ The choices are listed as below:
 * Veggies: Corn, Onions, Tomatoes, Lettuce  
 * Sauce: Chilli Sauce  
 * Top-up: Gaucamole  
-* Sides: <none>  
+* Sides: (none)  
   
 ### Test case 5: Healthy Meal
 The choices are listed as below:  
