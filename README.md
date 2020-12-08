@@ -73,6 +73,7 @@ The results are shown as below:
 <img src = "https://github.com/StephanieMussi/Subway_Machine_Prolog/blob/main/Figures/Standard2.png" width = 759 height = 908>
 <img src = "https://github.com/StephanieMussi/Subway_Machine_Prolog/blob/main/Figures/Standard3.png" width = 412 height = 185>  
 
+
 ### Test case 2: Value Meal
 The choices are listed as below:  
 * Meal: Value   
@@ -81,6 +82,11 @@ The choices are listed as below:
 * Veggies: Lettuce, Bell Peppers  
 * Sauce: Chipotle Southwest  
 * Sides: Yogurt  
+
+The results are shown as below:  
+<img src = "https://github.com/StephanieMussi/Subway_Machine_Prolog/blob/main/Figures/Value1.png" width = 794 height = 890>  
+It can be seen that top-up never appears in the ordering steps.  
+
 
 ### Test case 3: Veggie Meal
 The choices are listed as below:  
@@ -91,6 +97,13 @@ The choices are listed as below:
 * Top-up: Egg Mayo  
 * Sides: Drinks, Hash Browns  
 
+The results are shown as below:  
+<img src = "https://github.com/StephanieMussi/Subway_Machine_Prolog/blob/main/Figures/Veggie1.png" width = 796 height = 862>
+<img src = "https://github.com/StephanieMussi/Subway_Machine_Prolog/blob/main/Figures/Veggie2.png" width = 356 height = 169>  
+
+It is shown above that meat never appears for the user who chooses veggie meal.  
+
+
 ### Test case 4: Vegan Meal
 The choices are listed as below:  
 * Meal: Vegan  
@@ -99,7 +112,13 @@ The choices are listed as below:
 * Sauce: Chilli Sauce  
 * Top-up: Gaucamole  
 * Sides: (none)  
-  
+
+The results are shown as below:  
+<img src = "https://github.com/StephanieMussi/Subway_Machine_Prolog/blob/main/Figures/Vegan1.png" width = 796 height = 737>
+<img src = "https://github.com/StephanieMussi/Subway_Machine_Prolog/blob/main/Figures/Vegan2.png" width = 796 height = 197>  
+
+As it can be seen, the only non-cheese top-up is displayed, and meat never appears.  
+
 ### Test case 5: Healthy Meal
 The choices are listed as below:  
 * Meal: Healthy    
@@ -109,6 +128,10 @@ The choices are listed as below:
 * Sauce: Tomato Sauce  
 * Top-up: Moneterey Cheddar
 * Sides: Yogurt  
+
+The results are shown as below:  
+<img src = "https://github.com/StephanieMussi/Subway_Machine_Prolog/blob/main/Figures/Healthy1.png" width = 796 height = 549>
+<img src = "https://github.com/StephanieMussi/Subway_Machine_Prolog/blob/main/Figures/Healthy2.png" width = 661 height = 522>  
 
 
 
