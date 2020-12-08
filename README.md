@@ -18,7 +18,7 @@ Moreover, the machine can intelligently display the options selectively personâ€
 1. If a person chose a _value meal_, no top-up should be offered.  
 
 Based on the requirements above, the working sequence is designed in the following way:  
-<img src = "https://github.com/StephanieMussi/Subway_Machine_Prolog/blob/main/Figures/FlowChart.png" width = 1000 height = 200>  
+<img src = "https://github.com/StephanieMussi/Subway_Machine_Prolog/blob/main/Figures/FlowChart.png" width = 1000 height = 150>  
 
 The full menu is as followed:   
 * meal   
@@ -59,10 +59,52 @@ Dynamicall(0):- dynamic(chosen_meal/1),
 
 
 ### Test case 1: Standard Meal
+The choices are listed as below:  
+* Meal: Standard  
+* Bread: Parmesan Oregano  
+* Meat: Roast Beef  
+* Veggies: Cucumbers, Pickles, Olives  
+* Sauce: Ranch, BBQ  
+* Top-up: Processed Cheddar  
+* Sides: Cookies, Drinks  
+
 ### Test case 2: Value Meal
+The choices are listed as below:  
+* Meal: Value   
+* Bread: Italian Wheat  
+* Meat: Tuna  
+* Veggies: Lettuce, Bell Peppers  
+* Sauce: Chipotle Southwest  
+* Sides: Yogurt  
+
 ### Test case 3: Veggie Meal
+The choices are listed as below:  
+* Meal: Veggie  
+* Bread: Multigrain  
+* Veggies: Pickles, Lettuce  
+* Sauce: Chilli Sauce, Mustard  
+* Top-up: Egg Mayo  
+* Sides: Drinks, Hash Browns  
+
 ### Test case 4: Vegan Meal
+The choices are listed as below:  
+* Meal: Vegan  
+* Bread: Flatbread  
+* Veggies: Corn, Onions, Tomatoes, Lettuce  
+* Sauce: Chilli Sauce  
+* Top-up: Gaucamole  
+* Sides: <none>  
+  
 ### Test case 5: Healthy Meal
+The choices are listed as below:  
+* Meal: Healthy    
+* Bread: Honey Oat  
+* Meat: Chicken Breast  
+* Veggies: Onions, Pickles, CUcumber  
+* Sauce: Tomato Sauce  
+* Top-up: Moneterey Cheddar
+* Sides: Yogurt  
+
 
 
 
