@@ -44,7 +44,19 @@ The full menu is as followed:
 
 
 ## Demo
-After implementing the machine, the following test cases are used to demonstrate the fulfillment of all requirements.  
+After implementing the machine, the following test cases are used to demonstrate the fulfillment of all requirements.   
+
+The first thing before the testing is to declare the list of user's choices as "dynamic". This allows __SWI-Prolog__ to modify the lists on the fly.  
+``` prolog
+Dynamicall(0):- dynamic(chosen_meal/1),
+                dynamic(chosen_bread/1),
+                dynamic(chosen_meat/1),
+                dynamic(chosen_veggies/1),
+                dynamic(chosen_sauce/1),
+                dynamic(chosen_topup/1),
+                dynamic(chosen_sides/1).
+```  
+
 
 ### Test case 1: Standard Meal
 ### Test case 2: Value Meal
