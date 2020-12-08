@@ -15,7 +15,20 @@ Moreover, the machine can intelligently display the options selectively personâ€
 1. If the person chose a _veggie meal_, meat options should not be offered.  
 1. If a person chose a _healthy meal_, fatty sauces should not be offered.  
 1. If a person chose a _vegan meal_, cheese top-up should not be offered.  
-1. If a person chose value meal, no top-up should be offered.  
+1. If a person chose a _value meal_, no top-up should be offered.  
 
 Based on the requirements above, the working sequence is designed in the following way:  
+
+The full menu is as followed:   
+```prolog
+meal([standard, value, veggie, vegan, healthy]).
+bread([italian_wheat, hearty_italian, honey_oat, parmesan_oregano, multigrain, flatbread]).
+meat([chicken_breast, ham, bacon, meat_ball, roast_beef, steak, tuna]).
+veggies([cucumbers, bell_peppers, lettuce, onions, tomatoes, olives, corn, pickles]).
+fatty_sauce([chipotle_southwest, ranch, bbq, mayonnaise, mustard]).
+non_fatty_sauce([chilli_sauce, tomato_sauce]).
+cheese_topup([processed_cheddar, monterey_cheddar]).
+non_cheese_topup([egg_mayo, guacamole]).
+sides([chips, cookies, hash_browns, yogurt, drinks]).
+```
 
