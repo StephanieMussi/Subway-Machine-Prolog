@@ -18,17 +18,39 @@ Moreover, the machine can intelligently display the options selectively personâ€
 1. If a person chose a _value meal_, no top-up should be offered.  
 
 Based on the requirements above, the working sequence is designed in the following way:  
+<img src = "https://github.com/StephanieMussi/Subway_Machine_Prolog/blob/main/Figures/FlowChart.png" width = 1000 height = 200>  
 
 The full menu is as followed:   
-```prolog
-meal([standard, value, veggie, vegan, healthy]).
-bread([italian_wheat, hearty_italian, honey_oat, parmesan_oregano, multigrain, flatbread]).
-meat([chicken_breast, ham, bacon, meat_ball, roast_beef, steak, tuna]).
-veggies([cucumbers, bell_peppers, lettuce, onions, tomatoes, olives, corn, pickles]).
-fatty_sauce([chipotle_southwest, ranch, bbq, mayonnaise, mustard]).
-non_fatty_sauce([chilli_sauce, tomato_sauce]).
-cheese_topup([processed_cheddar, monterey_cheddar]).
-non_cheese_topup([egg_mayo, guacamole]).
-sides([chips, cookies, hash_browns, yogurt, drinks]).
-```
+* meal   
+  * standard, value, veggie, vegan, healthy   
+* bread   
+  * italian_wheat, hearty_italian, honey_oat, parmesan_oregano, multigrain, flatbread   
+* meat  
+  * chicken_breast, ham, bacon, meat_ball, roast_beef, steak, tuna  
+* veggies  
+  * cucumbers, bell_peppers, lettuce, onions, tomatoes, olives, corn, pickles  
+* sauce  
+  * fatty_sauce  
+    * chipotle_southwest, ranch, bbq, mayonnaise, mustard  
+  * non_fatty_sauce
+    * chilli_sauce, tomato_sauce  
+* top-up  
+  * cheese_topup  
+    * processed_cheddar, monterey_cheddar  
+  * non_cheese_topup  
+    * egg_mayo, guacamole]  
+* sides  
+  * chips, cookies, hash_browns, yogurt, drinks  
+
+
+## Demo
+After implementing the machine, the following test cases are used to demonstrate the fulfillment of all requirements.  
+
+### Test case 1: Standard Meal
+### Test case 2: Value Meal
+### Test case 3: Veggie Meal
+### Test case 4: Vegan Meal
+### Test case 5: Healthy Meal
+
+
 
